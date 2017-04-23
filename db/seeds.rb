@@ -1,1 +1,14 @@
-User.destroy_all
+Review.create(title: "delicious", body: "Regular normal bathroom saw nothing special" , stars: 3)
+Review.create(title: "delicious", body: "Bathroom had a lizard in there not sure where it came from", stars: 2)
+Review.create(title: "delicious", body: "Finally a clean bathroom I am sick and tired of vising bathrooms that have pee on the seat" , stars: )
+Review.create(title: "delicious", body: "There bathroom has one of those japanses toilet seats that does that *eghem* stuff", stars:3)
+Review.create(body: "The lighting in here is really dim and the music is very relaxing. A guy can really go in peace", stars: 3)
+Review.create(body: "This was a cool bathroom it was made entirely from bamboo", stars: 3)
+Review.create(body: "A dragon attacked me", stars: 5)
+Review.create(body: "This is definitely not the place to go if you have any type of care for your deary-air", stars: 1)
+Review.create(body: "They only have cold water and no napkins just one of those wall blowdryers. I hate wall blowdryers!", stars: 1)
+
+Users.create(:username "Ronald Raygun", :email "ragonamicsbaby@yahoo.com" , :password_digest  "nothingspecial")
+Users.create(:username "Fay slift", :email "xx360noscopealldayxx@hotmail.com" , :password_digest "nothingspecial")
+Users.create(:username "The Poo Pro", :email "poolander@gmail.com" , :password_digest "nothingspecial")
+Users.create(:username "Trump's Rump", :email "orangejiggle@potus.gov" , :password_digest "nothingspecial")

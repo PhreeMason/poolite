@@ -1,1 +1,11 @@
-<h1>Welcome</h1>
+<h1>Welcome <%= @user.username%></h1>
+
+<% if !@reviews.blank? %>
+  <% for item in @reviews %>
+    <h3>item.title</h3>
+    <h4>item.body</h4>
+  <% end %>
+<% else %>
+  <h3>Oh no you haven't no reviewed any restrooms yet!</h3>
+<% end %>
+
