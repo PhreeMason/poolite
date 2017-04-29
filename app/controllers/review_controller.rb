@@ -4,6 +4,7 @@ class ReviewController < ApplicationController
    get '/review/new' do
      if logged_in?
        @user = current_user
+       @logged = logged_in?
        erb :'/review/write_review'
      else
        redirect to '/login'
@@ -16,6 +17,7 @@ class ReviewController < ApplicationController
        review.save
        redirect to '/review'
      else
+       @logged = logged_in?
        redirect to '/review/new'
      end
    end
@@ -23,6 +25,7 @@ class ReviewController < ApplicationController
    get '/review/:id' do
      if logged_in?
        @review = review.find(params[:id])
+       @logged = logged_in?
        erb :'/review/show_review'
      else
        redirect to '/login'
@@ -35,7 +38,8 @@ class ReviewController < ApplicationController
        if current_user.reviews.include?(@review)
          @review.destroy
        end
-       redirect to '/review'
+       @logged = logged_in?
+       redirect to "/user/#{current_user.id}"
      else
        redirect to '/login'
      end
@@ -44,6 +48,7 @@ class ReviewController < ApplicationController
    get '/review/:id/edit' do
      if logged_in?
        @review = review.find(params[:id])
+       @logged = logged_in?
        erb :'/review/edit_review'
      else
        redirect to '/login'
@@ -54,6 +59,7 @@ class ReviewController < ApplicationController
      if !params[:review][:body].blank?
        @review= Review.find(params[:id])
        @review.update(params[:review])
+       @logged = logged_in?
        redirect to "review/#{@review.id}"
      else
        redirect to "/review/#{@review.id}/edit"
