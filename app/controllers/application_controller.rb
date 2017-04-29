@@ -12,16 +12,6 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  helpers do
-    def current_user
-      User.find(session[:user_id]) if session[:user_id]
-    end
-
-    def logged_in?
-      !!current_user
-    end
-  end
-
   get "/signup" do
     if logged_in?
       redirect to "user/#{@user.id}"
@@ -59,6 +49,16 @@ class ApplicationController < Sinatra::Base
   get "/logout" do
     session.clear
     redirect "/login"
+  end
+
+  helpers do
+    def current_user
+      User.find(session[:user_id]) if session[:user_id]
+    end
+
+    def logged_in?
+      !!current_user
+    end
   end
 
 end
