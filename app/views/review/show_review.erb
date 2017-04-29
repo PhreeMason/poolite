@@ -1,0 +1,11 @@
+<% if @review %>
+  <h3>  <%=@review.body%></h3>
+<% end %>
+
+<form class="" action="/delete/<%=@review.id%>" method="post">
+  <input type="submit" value="Delete">
+</form>
+
+<a href="/review/<%=@review.id%>/edit">Edit</a>
+
+<a href="/logout">Log out</a>

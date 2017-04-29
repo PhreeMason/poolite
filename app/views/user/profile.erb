@@ -2,9 +2,14 @@
 
 <% if !@reviews.blank? %>
   <% for item in @reviews %>
-    <h3>item.title</h3>
-    <h4>item.body</h4>
+    <a href="review/<%=item.id%>">
+      <div class="">
+        <h4><%=item.body%></h4>
+      </div>
+    </a>
   <% end %>
 <% else %>
   <h3>Oh no you haven't reviewed any restrooms yet!</h3>
 <% end %>
+
+<a href="/logout">Log out</a>
