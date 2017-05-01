@@ -1,9 +1,14 @@
 <h1>Welcome <%= @user.username%></h1>
-
+<nav>
+  <a href="/restrooms">Restrooms</a>
+</nav>
 <% if !@reviews.blank? %>
   <% for item in @reviews %>
     <a href="review/<%=item.id%>">
       <div class="">
+        <h4>
+          <%=item.restroom.restaurant_name%>
+        </h4>
         <h4><%=item.body%></h4>
       </div>
     </a>

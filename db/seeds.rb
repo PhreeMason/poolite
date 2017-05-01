@@ -18,3 +18,9 @@ Restroom.create(restaurant_name: "McDonalds", location: "19 Batman Ln")
 Restroom.create(restaurant_name: "White House Cafe", location: "1600 Penn Rd")
 Restroom.create(restaurant_name: "Jerk Chicken by Jerks", location: "1492 Columbus Blvd")
 Restroom.create(restaurant_name: "Krish's Duimplins", location: "1836 Supes Ave")
+
+Review.all.each do |review|
+  review.user = User.all.sample
+  review.restroom = Restroom.all.sample
+  review.save
+end

@@ -1,9 +1,9 @@
 class Review < ActiveRecord::Base
-  belongs_to :users
-  belongs_to :restrooms
+  belongs_to :user
+  belongs_to :restroom
 
   def average
-    self.reviews.collect { review.star }.reduce(:+) 
+    self.reviews.collect { review.star }.reduce(:+)
   end
 
 end

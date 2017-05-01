@@ -9,6 +9,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    @restrooms = Restroom.all
+    @logged = logged_in?
     erb :index
   end
 
@@ -59,6 +61,11 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!current_user
     end
+
+    def my_review?(review)
+      current_user.reviews.include?(review)
+    end
+
   end
 
 end
