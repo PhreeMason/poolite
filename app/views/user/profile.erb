@@ -1,5 +1,7 @@
 <h1>Welcome <%= @user.username%></h1>
-
+<nav>
+  <a href="/restrooms">Restrooms</a>
+</nav>
 <% if !@reviews.blank? %>
   <% for item in @reviews %>
     <a href="review/<%=item.id%>">
