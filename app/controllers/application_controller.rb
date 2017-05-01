@@ -59,6 +59,11 @@ class ApplicationController < Sinatra::Base
     def logged_in?
       !!current_user
     end
+
+    def my_review?(review)
+      current_user.reviews.include?(review)
+    end
+
   end
 
 end

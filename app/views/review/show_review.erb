@@ -1,13 +1,15 @@
 <% if @review %>
-  <h2><%=review.user.username%></h2>
-  <h3><%=review.restroom.restaurant_name%></h3>
+  <h2><%=@review.user.username%></h2>
+  <h3><%=@review.restroom.restaurant_name%></h3>
   <h4><%=@review.body%></h4>
 <% end %>
 
-<form class="" action="/delete/<%=@review.id%>" method="post">
-  <input type="submit" value="Delete">
-</form>
-
-<a href="/review/<%=@review.id%>/edit">Edit</a>
+<% if @my_review %>
+  <form class="" action="/delete/<%=@review.id%>" method="post">
+    <input type="submit" value="Delete">
+  </form>
+  
+  <a href="/review/<%=@review.id%>/edit">Edit</a>
+<% end %>
 
 <a href="/logout">Log out</a>

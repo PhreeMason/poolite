@@ -1,11 +1,11 @@
 <h1><%= @restroom.restaurant_name%></h1>
 
-<% if !@restroom.reviews? %>
+<% if !@restroom.reviews.blank? %>
   <% for item in @restroom.reviews %>
-    <a href="review/<%=item.id%>">
+    <a href="/review/<%=item.id%>">
       <div class="">
+        <%=item.user.username%>
         <h4>
-          <%=item.user.username%>
         <%=item.body%>
         </h4>
       </div>

@@ -1,14 +1,14 @@
 <% if !@restrooms.blank? %>
   <% for item in @restrooms %>
     <div class="">
-      <h2><%=item.restaurant_name%></h2>
-        <% if !@restrooms.reviews.blank? %>
+      <h2><a href="/restrooms/<%=item.id%>"><%=item.restaurant_name%></a></h2>
+        <% if !item.reviews.blank? %>
           <ul>
-            <% for item in @restrooms.reviews %>
+            <% for item in item.reviews %>
               <li>
                 <a href="/review/<%=item.id%>">
                   <div class="">
-                    <%=item.body%>
+                    <h3><%="#{item.body} #{item.stars}"%></h3>
                   </div>
                 </a>
               </li>
